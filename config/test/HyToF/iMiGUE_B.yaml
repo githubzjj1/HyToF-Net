@@ -1,0 +1,44 @@
+seed: 1
+num_worker: 0
+work_dir: ./work_dir/test/iMiGUE_B
+
+phase: test
+weights: ./path_to_trained_model.pt
+
+feeder: feeders.feeder_imigue_bone.Feeder
+
+test_feeder_args:
+  split: 'test'
+  data_type: 'b'
+  repeat: 1
+  partition: False
+
+
+model: model.HyToF.HyToF_
+model_args:
+  in_channels: 2
+  num_classes: 32
+  num_people: 1
+  num_points: 22
+  kernel_size: 3
+  num_heads: 4
+  num_edges: 6
+  drop: 0.0
+  head_drop: 0.1
+  drop_path: 0.3
+  mlp_ratio: 2.0
+  index_t: True
+    
+  num_body_classes: 6
+  
+  graph: 'graph.imigue.Graph'
+  graph_args:
+    labeling_mode: 'spatial'
+  spatial_topk: 22
+  semantic_topk: 15
+
+
+
+device: [0]
+test_batch_size: 64
+loss_type: FLSL

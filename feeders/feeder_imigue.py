@@ -210,16 +210,7 @@ class Feeder(Dataset):
         return data, index_t, label, index
 
     def top_k(self, score, top_k, f=False):
-        
-
-
-
-
-
-
-
-
-
+  
         rank = score.argsort()
         if f:
             hit_top_k = [l in rank[i, -top_k:] for i, l in enumerate(self.label_coarse)]
@@ -229,14 +220,6 @@ class Feeder(Dataset):
 
 
 def import_class(name):
-    
-
-
-
-
-
-
-
 
     components = name.split('.')
     mod = __import__(components[0])

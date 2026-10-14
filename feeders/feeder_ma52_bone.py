@@ -73,27 +73,14 @@ class Feeder(Dataset):
 
     def __len__(self):
         
-
-
         return len(self.data_dict) * self.repeat
 
     def __iter__(self):
         
-
-
         return self
 
     def __getitem__(self, index):
-        
-
-
-
-
-
-
-
-
-
+      
         channel = 2
         label = self.label[index % len(self.data_dict)]  
         value = self.data[index % len(self.data_dict)]  
@@ -237,15 +224,6 @@ class Feeder(Dataset):
         return data, index_t, label, index
 
     def top_k(self, score, top_k, f=False):
-        
-
-
-
-
-
-
-
-
 
         rank = score.argsort()
         if f:
@@ -256,14 +234,6 @@ class Feeder(Dataset):
 
 
 def import_class(name):
-    
-
-
-
-
-
-
-
 
     components = name.split('.')
     mod = __import__(components[0])
